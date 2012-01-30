@@ -51,7 +51,7 @@ THE SOFTWARE.
 #if defined (_MSC_VER)
 #   define SHINY_COMPILER	SHINY_COMPILER_MSVC
 
-#elif defined (__GNUG__)
+#elif defined (__GNUC__)
 #   define SHINY_COMPILER	SHINY_COMPILER_GNUC
 
 #else
@@ -110,7 +110,7 @@ THE SOFTWARE.
 #	define SHINY_EXPORT		__declspec(dllexport)
 
 #elif SHINY_COMPILER == SHINY_COMPILER_GNUC
-#	define SHINY_INLINE		inline
+#	define SHINY_INLINE	        static inline
 #	define SHINY_UNUSED		__attribute__((unused))
 #	define SHINY_EXPORT		__attribute__((dllexport))
 
@@ -119,7 +119,6 @@ THE SOFTWARE.
 #	define SHINY_UNUSED
 #	define SHINY_EXPORT		extern
 #endif
-
 
 /*---------------------------------------------------------------------------*/
 
@@ -135,8 +134,6 @@ THE SOFTWARE.
 	typedef u_int32_t			uint32_t;
 	typedef u_int64_t			uint64_t;
 */
-#else
-# include <stdint.h>
 #endif
 
 	typedef uint64_t			shinytick_t;

@@ -1,0 +1,3 @@
+##### TODO #####
+1. Shiny Profiler expects a static object for each zone - to store averages etc.
+   - this means will need a map of wrappers with, probably a hash as the key

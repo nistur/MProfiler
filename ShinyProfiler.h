@@ -5,6 +5,10 @@
 #include <MEngine.h>
 #include <MProfiler.h>
 
+#include "Shiny.h"
+
+#include <vector>
+
 class MShinyProfiler : public MProfilerContext
 {
 public:
@@ -14,6 +18,9 @@ public:
     void init();
     void update();
     void cleanup();
+
+private:
+    std::vector<ShinyZone*> m_zones;
 };
 
 #endif /*__MARATIS_SHINY_PROFILER_H__*/

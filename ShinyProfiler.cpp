@@ -1,11 +1,16 @@
 #include "ShinyProfiler.h"
 
-#include "Shiny.h"
-
 void MShinyProfiler::pushScope(const char* name)
 {
-    _PROFILE_ZONE_DEFINE(_PROFILE_ID_ZONE(Maratis), name);
-    _PROFILE_ZONE_BEGIN(_PROFILE_ID_ZONE(Maratis));
+    ShinyZone* zone = new ShinyZone;
+    zone->next = NULL;
+    zone->_state = SHINY_ZONE_STATE_HIDDEN;
+    zone->name = name;
+    zone->data = { { 0, 0 }, { 0, 0 }, { 0, 0 } };
+
+    m_zones.push_back(zone);
+
+    _PROFILE_ZONE_BEGIN(*zone);
 }
 
 void MShinyProfiler::popScope()

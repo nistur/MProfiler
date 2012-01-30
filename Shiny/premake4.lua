@@ -6,9 +6,6 @@ project "Shiny"
   includedirs { "include" }
 	
   targetdir("..")
-  
-  defines { "SHINY_INLINE=inline" }
-  
 
   -- making a debug build, always useful
   configuration "Debug"
