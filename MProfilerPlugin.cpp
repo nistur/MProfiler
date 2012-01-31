@@ -1,14 +1,14 @@
 #include "MProfilerPlugin.h"
 
-#include "ShinyProfiler.h"
+#include "Profiler.h"
 
 #include "MEngine.h"
 
-MShinyProfiler* s_profiler = 0;
+ShinyProfiler::Profiler* s_profiler = 0;
 
 void StartPlugin(void)
 {
-    s_profiler = new MShinyProfiler;
+    s_profiler = new ShinyProfiler::Profiler;
 
     s_profiler->init();
 
