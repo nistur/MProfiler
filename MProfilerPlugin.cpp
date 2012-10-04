@@ -1,12 +1,11 @@
 #include "MProfilerPlugin.h"
 
 #include "Profiler.h"
-
-#include "MEngine.h"
+#include "MProfiler_npk.h"
 
 ShinyProfiler::Profiler* s_profiler = 0;
 
-void StartPlugin(void)
+MINGED_PLUGIN_START_IMPLEMENT(MProfiler)
 {
     s_profiler = new ShinyProfiler::Profiler;
 
@@ -16,7 +15,7 @@ void StartPlugin(void)
     engine->setProfilerContext(s_profiler);
 }
 
-void EndPlugin(void)
+MINGED_PLUGIN_END_IMPLEMENT(MProfiler)
 {
     s_profiler->cleanup();
 
